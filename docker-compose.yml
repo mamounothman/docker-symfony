@@ -11,6 +11,7 @@ services:
         NGINX_VERSION: ${NGINX_VERSION}
     ports:
       - ${PORT_NGINX}:80
+      - ${PORT_NGINX_SSL}:443
     networks:
       default:
         aliases:
@@ -19,6 +20,8 @@ services:
       - ${PROJECT_PATH}:/var/www/project:cached
       - ${NGINX_LOG_PATH}:/var/log/nginx
       - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ${USER_CONFIG_PATH}/certs-data/:/data/letsencrypt/
+      - /etc/letsencrypt/:/etc/letsencrypt/
     depends_on:
       - php
     environment:
