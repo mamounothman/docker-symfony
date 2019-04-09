@@ -1,4 +1,4 @@
-# Docker Symfony (PHP-FPM - NGINX - MySQL)
+# Docker for Symfony (PHP-FPM - NGINX - MySQL)
 
 Docker symfony gives you everything you need for developing Symfony application. This complete stack run with docker and docker-compose.
 
@@ -49,6 +49,16 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-
 
 If you are running on Windows:
 Docker for Windows and Docker Toolbox already include Compose with other Docker apps, so most Windows users do not need to install Compose separately.
+
+## Install PWGen
+### Debian / Ubuntu
+```
+sudo apt-get install pwgen
+``` 
+### CentOS
+```
+wget http://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/p/pwgen-2.08-1.el7.x86_64.rpm && rpm -ivh pwgen-2.08-1.el7.x86_64.rpm
+```
 
 # Configuration
 1. Create a `.env` from the `.env.dist` file. Adapt it according to your symfony application
@@ -160,3 +170,10 @@ Docker for Windows and Docker Toolbox already include Compose with other Docker 
     symfony_php_1_916d0314f3e0          docker-php-entrypoint php-fpm    Up      9000/tcp                                
     symfony_phpmyadmin_1_a5ce79ef63bd   /run.sh supervisord -n -j  ...   Up      0.0.0.0:8080->80/tcp, 9000/tcp 
     ```
+
+
+# JetBrains support us! 
+
+<p align="center">
+  <img src="https://account.jetbrains.com/static/images/jetbrains-logo-inv.svg" width="350" title="hover text">
+</p>
