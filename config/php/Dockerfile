@@ -29,7 +29,9 @@ RUN apt-get update && \
     libmagickwand-dev \
     curl \
     xauth \
-    xvfb
+    xvfb \
+    openssh-client \
+    less
 
 # Install PHP extensions. Type docker-php-ext-install to see available extensions
 RUN docker-php-ext-configure zip --with-libzip && \
@@ -77,7 +79,7 @@ RUN chown -R ${USER_ID}:${GROUP_ID} /var/www/.composer && \
 RUN curl -sL https://deb.nodesource.com/setup_${NODE_JS_VERSION} | bash && \
     apt-get install -y nodejs npm node-uglify && \
     update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10 && \
-    npm install -g yargs async sass
+    npm install -g grunt-cli yargs async sass gulp
 
 # bugfix: remove cmdtest to install yarn correctly.
 RUN apt-get remove -y cmdtest
